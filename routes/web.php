@@ -1,6 +1,8 @@
 <?php
 
+use App\Filament\Resources\EmployeeResource;
 use App\Http\Controllers\ProfileController;
+use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,5 +18,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Route::get('/employees', function(){
+//     $employees = Employee::orderBy('last_name', 'DESC')->get();
+//     return EmployeeResource::collection($employees);
+// });
 
 require __DIR__.'/auth.php';
